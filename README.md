@@ -1,4 +1,4 @@
-webkit2png-png
+webkit2png-php
 ==============
 
-PHP wrapper for webkit2png
+PHP wrapper for the webkit2png application.

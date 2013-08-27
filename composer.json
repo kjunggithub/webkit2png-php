@@ -22,7 +22,7 @@
         }
     ],
     "autoload": {
-        "psr-0": {"kjung\\":"src/"}
+        "psr-0": {"kjung":"src/"}
     },
     "minimum-stability":"dev",
     "extra": {

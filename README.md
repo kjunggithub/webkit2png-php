@@ -56,7 +56,6 @@ $webkit2png->getQuery();
 
 | Option | Example |
 | --- | --- |
-
 | width | '1280' | 
 | height | '800' |
 | zoom | 2.0 |
@@ -76,7 +75,6 @@ $webkit2png->getQuery();
 | no-js | true |
 | transparent | true |
 | user-agent | 'string' |
-
 ## TODOs
 
 * Add validation

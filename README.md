@@ -55,26 +55,26 @@ $webkit2png->getQuery();
 ## Options
 
 | Option | Example |
-| --- | --- |
-| width | '1280' | 
-| height | '800' |
-| zoom | 2.0 |
-| fullsize | true |
-| thumb | true |
-| clipped | true |
-| clipped-width | 1000 |
-| clipped-height | 800 |
-| scale | '3.0' |
-| dir | 'images/' |
-| filename | 'image' |
-| md5 | true |
-| datestamp | true |
-| delay | 3 |
-| js | '\'document.bgColor="red";\'' |
-| no-image | true |
-| no-js | true |
-| transparent | true |
-| user-agent | 'string' |
+| :---: | :---: |
+| width | `'1280'` | 
+| height | `'800'` |
+| zoom | `'2.0'` |
+| fullsize | `true` |
+| thumb | `true` |
+| clipped | `true` |
+| clipped-width | `'1000'` |
+| clipped-height | `'800'` |
+| scale | `'3.0'` |
+| dir | `'images/'` |
+| filename | `'image'` |
+| md5 | `true` |
+| datestamp | `true` |
+| delay | `'3'` |
+| js | `'\'document.bgColor="red";\''` |
+| no-image | `true` |
+| no-js | `true` |
+| transparent | `true` |
+| user-agent | `'string'` |
 ## TODOs
 
 * Add validation

@@ -1,2 +1,5 @@
 .DS_Store
-logs/
+*.sublime-project
+*.sublime-workspace
+example.php
+/vendor/

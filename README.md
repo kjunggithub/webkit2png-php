@@ -2,7 +2,7 @@
 
 webkit2png-php is a PHP wrapper for the [webkit2png binary](https://github.com/paulhammond/webkit2png/) on OS X. Latest webkit2png version tested with this library is `v0.6`.
 
-## Requirement
+## Requirements
 
 * [webkit2png binary](https://github.com/paulhammond/webkit2png/)
 * PHP 5.3 or greater

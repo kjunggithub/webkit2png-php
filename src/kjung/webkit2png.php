@@ -13,7 +13,7 @@ class webkit2png {
 	 * @var array
 	 */
 	private $options = array(
-		'dir' => 'img/',
+		'dir' => 'images/',
 	);
 
 	/**
@@ -91,12 +91,11 @@ class webkit2png {
 	public function setOptions($options = null)
 	{
 		$this->options = array_merge($this->options, $options);	
-
-			array_walk($this->options, function(&$value	){
-				if ($value === true) {
-					$value = null;
-				}
-			});
+		array_walk($this->options, function(&$value){
+			if ($value === true) {
+				$value = null;
+			}
+		});
 	}
 
 	/**
@@ -125,8 +124,6 @@ class webkit2png {
 		$this->options = array_merge_recursive($this->flags, $this->options);
 		$this->options = array_diff($this->options, $this->flags);
 		$this->options = array_intersect_key($this->options, $this->flags);
-
-		die(var_dump($this->options));
 
 		foreach ($this->options as $key => $option) {
 			$this->query .= $option[0] . ' ' . $option[1] . ' ';

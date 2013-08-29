@@ -39,8 +39,8 @@ $webkit2png = new \kjung\webkit2png('http://google.com');
 
 ```PHP
 $webkit2png->setOptions(array(
-	'dir'      => 'images/',
-	'width'    => '1000',
+	'dir'      => 'screenshots/',
+	'width'    => 1000,
 	'fullsize' => true
 	)
 );
@@ -64,25 +64,27 @@ $webkit2png->getQuery();
 
 | Option | Example |
 | :---: | :---: |
-| width | `'1280'` | 
-| height | `'800'` |
-| zoom | `'2.0'` |
+| width | `1280` | 
+| height | `800` |
+| zoom | `2.0` |
 | fullsize | `true` |
 | thumb | `true` |
 | clipped | `true` |
-| clipped-width | `'1000'` |
-| clipped-height | `'800'` |
-| scale | `'3.0'` |
+| clipped-width | `1000` |
+| clipped-height | `800` |
+| scale | `3.0` |
 | dir | `'images/'` |
 | filename | `'image'` |
 | md5 | `true` |
 | datestamp | `true` |
-| delay | `'3'` |
-| js | `'\'javascript here\''` |
+| delay | `3` |
+| js | `'\'javascript string here\''` |
 | no-image | `true` |
 | no-js | `true` |
 | transparent | `true` |
 | user-agent | `'\'use agent string here\''` |
+
+Keep in mind that for `js` and `user-agent`, you must either use double quotes or escape single quotes so that the string passed is wrapped by single quotes.
 
 ## TODOs
 

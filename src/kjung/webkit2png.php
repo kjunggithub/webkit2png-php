@@ -91,11 +91,6 @@ class webkit2png {
 	public function setOptions($options = null)
 	{
 		$this->options = array_merge($this->options, $options);	
-		array_walk($this->options, function(&$value){
-			if ($value === true) {
-				$value = null;
-			}
-		});
 	}
 
 	/**
@@ -113,7 +108,7 @@ class webkit2png {
 	public function getQuery()
 	{	
 		$this->setQuery();
-		return $this->query;
+		return trim($this->query);
 	}
 
 	/**
@@ -121,14 +116,21 @@ class webkit2png {
 	 */
 	private function setQuery()
 	{	
+		array_walk($this->options, function(&$value){
+			if ($value === true) {
+				$value = null;
+			}
+		});
+
 		$this->options = array_merge_recursive($this->flags, $this->options);
 		$this->options = array_diff($this->options, $this->flags);
 		$this->options = array_intersect_key($this->options, $this->flags);
 
 		foreach ($this->options as $key => $option) {
 			$this->query .= $option[0] . ' ' . $option[1] . ' ';
-			$this->query = $string = str_replace('  ', ' ', $this->query);
 		}
+
+		$this->query = $string = str_replace('  ', ' ', $this->query);
 	}
 
 }

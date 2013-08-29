@@ -1,6 +1,6 @@
 # webkit2png-php
 
-webkit2png-php is a PHP wrapper for the [webkit2png binary](https://github.com/paulhammond/webkit2png/) on OS X. Latest webkit2png version tested with this library is `v0.6`.
+webkit2png-php is a PHP wrapper for the [webkit2png binary](https://github.com/paulhammond/webkit2png/) on OS X. Latest webkit2png version tested with this library is `v0.6`. For more details on webkit2png, please refer to [project page](http://www.paulhammond.org/webkit2png/).
 
 ## Requirements
 
@@ -45,21 +45,22 @@ $webkit2png->setOptions(array(
 	)
 );
 ```
-The library default directory is set to `img/` but you can always override it with the `dir` option as seen above.
+The library default directory is set to `images/` but you can always override it with the `dir` option as seen above.
 
 * Now Generate the image:
 
 ```PHP
 $webkit2png->getImage();
 ```
+And thats it!
 
-* Optionally, you can access the actual webkit2png query with this method:
+* Optionally, you can access the actual webkit2png query being sent with this method:
 
 ```PHP
 $webkit2png->getQuery();
 ```
 
-## Options
+## Available Options
 
 | Option | Example |
 | :---: | :---: |
@@ -77,11 +78,11 @@ $webkit2png->getQuery();
 | md5 | `true` |
 | datestamp | `true` |
 | delay | `'3'` |
-| js | `'\'document.bgColor="red";\''` |
+| js | `'\'javascript here\''` |
 | no-image | `true` |
 | no-js | `true` |
 | transparent | `true` |
-| user-agent | `'string'` |
+| user-agent | `'\'use agent string here\''` |
 
 ## TODOs
 

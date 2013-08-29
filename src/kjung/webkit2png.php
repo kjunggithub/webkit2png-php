@@ -71,16 +71,17 @@ class webkit2png {
 			die($e->getMessage());
 		}
 
-		$this->setUrl($url);
+		$this->url = $url;
+		$this->setUrl();
 	}	
 
 	/**
 	 * Set the $url variable
 	 * @param string $url Provied URL
 	 */
-	private function setUrl($url)
+	private function setUrl()
 	{	
-		$this->options['url'] = $url;
+		$this->options['url'] = $this->url;
 	}
 
 	/**
@@ -90,6 +91,7 @@ class webkit2png {
 	public function setOptions($options = null)
 	{
 		$this->options = array_merge($this->options, $options);	
+
 			array_walk($this->options, function(&$value	){
 				if ($value === true) {
 					$value = null;
@@ -103,8 +105,7 @@ class webkit2png {
 	public function getImage()
 	{	
 		$this->setQuery();
-		// $this->dd($this->query);
-		return passthru(trim($this->query));	
+		return shell_exec(trim($this->query));	
 	}
 
 	/**
@@ -121,15 +122,16 @@ class webkit2png {
 	 */
 	private function setQuery()
 	{	
-		$this->options = array_merge_recursive($this->options, $this->flags);
+		$this->options = array_merge_recursive($this->flags, $this->options);
 		$this->options = array_diff($this->options, $this->flags);
+		$this->options = array_intersect_key($this->options, $this->flags);
 
-		foreach ($this->options as $key => $value) {
-			$this->query .= $value[1] . ' ' . $value[0] . ' ';
+		die(var_dump($this->options));
+
+		foreach ($this->options as $key => $option) {
+			$this->query .= $option[0] . ' ' . $option[1] . ' ';
 			$this->query = $string = str_replace('  ', ' ', $this->query);
 		}
-
-		$this->query .= '2>&1';
 	}
 
 }

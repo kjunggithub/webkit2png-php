@@ -82,7 +82,7 @@ $webkit2png->getQuery();
 | no-image | `true` |
 | no-js | `true` |
 | transparent | `true` |
-| user-agent | `'\'use agent string here\''` |
+| user-agent | `'\'user agent string here\''` |
 
 Keep in mind that for `js` and `user-agent`, you must either use double quotes or escape single quotes so that the string passed is wrapped by single quotes.
 

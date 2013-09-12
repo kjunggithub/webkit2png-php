@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Webkit2png-php by kjunggithub</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Webkit2png-php</h1>
+        <p>PHP wrapper for webkit2png on OS X</p>
+
+        <p class="view"><a href="https://github.com/kjunggithub/webkit2png-php">View the Project on GitHub <small>kjunggithub/webkit2png-php</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/kjunggithub/webkit2png-php/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kjunggithub/webkit2png-php/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kjunggithub/webkit2png-php">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="webkit2png-php" class="anchor" href="#webkit2png-php"><span class="octicon octicon-link"></span></a>webkit2png-php</h1>
+
+<p>webkit2png-php is a PHP wrapper for the <a href="https://github.com/paulhammond/webkit2png/">webkit2png binary</a> available on Mac OS X. Latest webkit2png version tested with this library is <code>v0.6</code>. For more details on webkit2png, please refer to the <a href="http://www.paulhammond.org/webkit2png/">webkit2png project</a> page.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li><a href="https://github.com/paulhammond/webkit2png/">webkit2png binary</a></li>
+<li>PHP 5.3 or greater</li>
+<li>Shell access</li>
+</ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>To get started, require the library in your <code>composer.json</code> file:</p>
+
+<div class="highlight highlight-JSON"><pre><span class="p">{</span>
+    <span class="nt">"require"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">"kjung/webkit2png-php"</span><span class="p">:</span> <span class="s2">"1.0.*@dev"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Then run <code>composer install</code> or <code>composer update</code>.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<ul>
+<li>Start by loading the autoloader: </li>
+</ul><div class="highlight highlight-PHP"><pre><span class="k">require_once</span> <span class="s1">'vendor/autoload.php'</span><span class="p">;</span>
+</pre></div>
+
+<ul>
+<li>Instantiate the library with the URL:</li>
+</ul><div class="highlight highlight-PHP"><pre><span class="nv">$webkit2png</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\kjung\webkit2png</span><span class="p">(</span><span class="s1">'http://google.com'</span><span class="p">);</span>
+</pre></div>
+
+<ul>
+<li>You can pass options to it but it is not required:</li>
+</ul><div class="highlight highlight-PHP"><pre><span class="nv">$webkit2png</span><span class="o">-&gt;</span><span class="na">setOptions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span>
+    <span class="s1">'dir'</span>      <span class="o">=&gt;</span> <span class="s1">'screenshots/'</span><span class="p">,</span>
+    <span class="s1">'width'</span>    <span class="o">=&gt;</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s1">'fullsize'</span> <span class="o">=&gt;</span> <span class="k">true</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>The library default directory is set to <code>images/</code> but you can always override it with the <code>dir</code> option as seen above.</p>
+
+<ul>
+<li>Now Generate the image:</li>
+</ul><div class="highlight highlight-PHP"><pre><span class="nv">$webkit2png</span><span class="o">-&gt;</span><span class="na">getImage</span><span class="p">();</span>
+</pre></div>
+
+<p>And thats it!</p>
+
+<ul>
+<li>Optionally, you can access the actual webkit2png query being sent with this method:</li>
+</ul><div class="highlight highlight-PHP"><pre><span class="nv">$webkit2png</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">();</span>
+</pre></div>
+
+<h2>
+<a name="available-options" class="anchor" href="#available-options"><span class="octicon octicon-link"></span></a>Available Options</h2>
+
+<table>
+<thead><tr>
+<th align="center">Option</th>
+<th align="center">Example</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center">width</td>
+<td align="center"><code>1280</code></td>
+</tr>
+<tr>
+<td align="center">height</td>
+<td align="center"><code>800</code></td>
+</tr>
+<tr>
+<td align="center">zoom</td>
+<td align="center"><code>2.0</code></td>
+</tr>
+<tr>
+<td align="center">fullsize</td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr>
+<td align="center">thumb</td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr>
+<td align="center">clipped</td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr>
+<td align="center">clipped-width</td>
+<td align="center"><code>1000</code></td>
+</tr>
+<tr>
+<td align="center">clipped-height</td>
+<td align="center"><code>800</code></td>
+</tr>
+<tr>
+<td align="center">scale</td>
+<td align="center"><code>3.0</code></td>
+</tr>
+<tr>
+<td align="center">dir</td>
+<td align="center"><code>'images/'</code></td>
+</tr>
+<tr>
+<td align="center">filename</td>
+<td align="center"><code>'image'</code></td>
+</tr>
+<tr>
+<td align="center">md5</td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr>
+<td align="center">datestamp</td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr>
+<td align="center">delay</td>
+<td align="center"><code>3</code></td>
+</tr>
+<tr>
+<td align="center">js</td>
+<td align="center"><code>'\'javascript string here\''</code></td>
+</tr>
+<tr>
+<td align="center">no-image</td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr>
+<td align="center">no-js</td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr>
+<td align="center">transparent</td>
+<td align="center"><code>true</code></td>
+</tr>
+<tr>
+<td align="center">user-agent</td>
+<td align="center"><code>'\'user agent string here\''</code></td>
+</tr>
+</tbody>
+</table><p>Keep in mind that for <code>js</code> and <code>user-agent</code>, you must either use double quotes or escape single quotes so that the string passed is wrapped by single quotes.</p>
+
+<h2>
+<a name="todos" class="anchor" href="#todos"><span class="octicon octicon-link"></span></a>TODOs</h2>
+
+<ul>
+<li>Add validation</li>
+<li>Complete Readme</li>
+<li>Composer</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kjunggithub">kjunggithub</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

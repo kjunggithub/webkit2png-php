@@ -2,14 +2,14 @@
 namespace kjung;
 
 /**
-* PHP wrapper class for the webkit2png application.
+* PHP wrapper class for the webkit2png application on OS X.
 *
 * @author Kevin Jung
-* 
+*
 */
-class webkit2png {	
+class webkit2png {
 	/**
-	 * Set options for webkit2png and contains the default directory path.
+	 * Holds the options and contains the default directory path.
 	 * @var array
 	 */
 	private $options = array(
@@ -17,7 +17,7 @@ class webkit2png {
 	);
 
 	/**
-	 * Set flags for the options.
+	 * Set flags vlaues for the options.
 	 * @var array
 	 */
 	private $flags = array(
@@ -44,7 +44,7 @@ class webkit2png {
 	);
 
 	/**
-	 * Set webki2png query to be executed.
+	 * Holds the query to be executed.
 	 * @var string
 	 */
 	private $query = 'webkit2png ';
@@ -54,59 +54,59 @@ class webkit2png {
 	 * @param string $url Provied URL
 	 */
 	public function __construct($url)
-	{	
+	{
 		// Set the environment path so you have access to webkit2png within PHP.
 		// If you installed webkit2png via homebrew, include the following path.
 		putenv("PATH=" . $_env["path"] .':/usr/local/bin');
 		$webkit2png = trim(shell_exec('type -P webkit2png'));
 
-		try 
+		try
 		{	if (empty($webkit2png)){
 			throw new \Exception('Unable to find webkit2png. Please check your environment paths to ensure that PHP has access to the webkit2png binary.');
 			}
 		}
 
-		catch (\Exception $e) 
+		catch (\Exception $e)
 		{
 			die($e->getMessage());
 		}
 
 		$this->url = $url;
 		$this->setUrl();
-	}	
+	}
 
 	/**
 	 * Set the $url variable
-	 * @param string $url Provied URL
+	 * @param string $url Provided URL
 	 */
 	private function setUrl()
-	{	
+	{
 		$this->options['url'] = $this->url;
 	}
 
 	/**
 	 * Set the $options variable
-	 * @param array $options Provied options
+	 * @param array $options Provided options
 	 */
 	public function setOptions($options = null)
 	{
-		$this->options = array_merge($this->options, $options);	
+		$this->options = array_merge($this->options, $options);
 	}
 
 	/**
-	 * Generate the image
+	 * Generate the image(s)
 	 */
 	public function getImage()
-	{	
+	{
 		$this->setQuery();
-		return shell_exec(trim($this->query));	
+		return shell_exec(trim($this->query));
 	}
 
 	/**
-	 * Generate and return the generated query
+	 * Generate and return the created query
 	 */
 	public function getQuery()
-	{	
+	{
 		$this->setQuery();
 		return trim($this->query);
 	}
@@ -115,7 +115,7 @@ class webkit2png {
 	 * Set the query based on the provided URL and options
 	 */
 	private function setQuery()
-	{	
+	{
 		array_walk($this->options, function(&$value){
 			if ($value === true) {
 				$value = null;
@@ -130,7 +130,7 @@ class webkit2png {
 			$this->query .= $option[0] . ' ' . $option[1] . ' ';
 		}
 
-		$this->query = $string = str_replace('  ', ' ', $this->query);
+		// $this->query = $string = str_replace('  ', ' ', $this->query);
 	}
 
 }

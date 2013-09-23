@@ -23,7 +23,7 @@ Then run `composer install` or `composer update`.
 
 ## Usage
 
-* Start by loading the autoloader: 
+* Start by loading the autoloader:
 
 ```PHP
 require_once 'vendor/autoload.php';
@@ -64,7 +64,7 @@ $webkit2png->getQuery();
 
 | Option | Example |
 | :---: | :---: |
-| width | `1280` | 
+| width | `1280` |
 | height | `800` |
 | zoom | `2.0` |
 | fullsize | `true` |
@@ -84,7 +84,7 @@ $webkit2png->getQuery();
 | transparent | `true` |
 | user-agent | `'\'user agent string here\''` |
 
-Keep in mind that for `js` and `user-agent`, you must either use double quotes or escape single quotes so that the string passed is wrapped by single quotes.
+Keep in mind that for `js` and `user-agent`, you must either use double quotes or escape single quotes so that the string passed is wrapped by quotes.
 
 ## TODOs
 

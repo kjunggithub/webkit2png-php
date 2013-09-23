@@ -77,7 +77,6 @@ class webkit2png {
 
 	/**
 	 * Set the $url variable
-	 * @param string $url Provided URL
 	 */
 	private function setUrl()
 	{
@@ -122,15 +121,13 @@ class webkit2png {
 			}
 		});
 
-		$this->options = array_merge_recursive($this->flags, $this->options);
-		$this->options = array_diff($this->options, $this->flags);
-		$this->options = array_intersect_key($this->options, $this->flags);
+		$options = array_merge_recursive($this->flags, $this->options);
+		$options = array_diff($options, $this->flags);
+		$options = array_intersect_key($options, $this->flags);
 
-		foreach ($this->options as $key => $option) {
+		foreach ($options as $key => $option) {
 			$this->query .= $option[0] . ' ' . $option[1] . ' ';
 		}
-
-		// $this->query = $string = str_replace('  ', ' ', $this->query);
 	}
 
 }
